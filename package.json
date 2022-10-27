@@ -1,0 +1,14 @@
+{
+  "name": "hng-task",
+  "version": "1.0.0",
+  "description": "hng internship task",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "abitech",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

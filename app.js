@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
     slackUsername: 'Abitech',
     backend: true,
     age: 27,
-    biography: 'Am a passionate and highly driven web developer 💻.',
+    bio: 'Am a passionate and highly driven web developer 💻.',
   });
 });
 

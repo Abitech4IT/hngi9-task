@@ -18,6 +18,12 @@ app.post('/api/v1/hng-task', (req, res) => {
   x = req.body.x;
   y = req.body.y;
 
+  const operation_type = {
+    addition: 'addition',
+    subtraction: 'subtraction',
+    multiplication: 'multiplication',
+  };
+
   console.log(req.body);
 
   let result = x + y;
@@ -25,8 +31,8 @@ app.post('/api/v1/hng-task', (req, res) => {
   res.status(201).json({
     status: 'success',
     slackUsername: 'Abitech',
-    operation_type: 'addition',
     result,
+    operation_type: operation_type.addition,
   });
 });
 

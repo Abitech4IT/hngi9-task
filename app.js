@@ -18,11 +18,11 @@ app.post('/api/v1/hng-task', (req, res) => {
   x = req.body.x;
   y = req.body.y;
 
-  const operation_type = {
+  const operation_type = Object.assign({
     addition: 'addition',
     subtraction: 'subtraction',
     multiplication: 'multiplication',
-  };
+  });
 
   console.log(req.body);
 

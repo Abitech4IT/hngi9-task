@@ -14,11 +14,13 @@ app.get('/api/v1/hng-task', (req, res) => {
 });
 
 app.post('/api/v1/hng-task', (req, res) => {
-  let x, y;
-  x = req.body.x;
-  y = req.body.y;
+  // let x, y;
+  // x = req.body.x;
+  // y = req.body.y;
 
-  const operation_type = Object.assign({
+  const { operation_type, x, y } = req.body;
+
+  const Enum = Object.assign({
     addition: 'addition',
     subtraction: 'subtraction',
     multiplication: 'multiplication',
@@ -28,12 +30,31 @@ app.post('/api/v1/hng-task', (req, res) => {
 
   // let result = x + y;
 
-  res.status(200).json({
-    status: 'success',
-    slackUsername: 'Abitech',
-    result: x + y,
-    operation_type: operation_type.addition,
-  });
+  switch (operation_type) {
+    case Enum.addition:
+      res.status(200).json({
+        status: 'success',
+        slackUsername: 'Abitech',
+        result: x + y,
+        operation_type,
+      });
+      break;
+    case Enum.subtraction:
+      res.status(200).json({
+        status: 'success',
+        slackUsername: 'Abitech',
+        result: x - y,
+        operation_type,
+      });
+      break;
+    case Enum.multiplication:
+      res.status(200).json({
+        status: 'success',
+        slackUsername: 'Abitech',
+        result: x * y,
+        operation_type,
+      });
+  }
 });
 
 module.exports = app;

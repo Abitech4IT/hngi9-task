@@ -18,7 +18,7 @@ app.post('/api/v1/hng-task', (req, res) => {
   // x = req.body.x;
   // y = req.body.y;
 
-  const { operation_type, x, y } = req.body;
+  const { x, y } = req.body;
 
   const Enum = Object.assign({
     addition: 'addition',
@@ -28,33 +28,40 @@ app.post('/api/v1/hng-task', (req, res) => {
 
   console.log(req.body);
 
-  // let result = x + y;
+  let result = x + y;
 
-  switch (operation_type) {
-    case Enum.addition:
-      res.status(200).json({
-        status: 'success',
-        slackUsername: 'Abitech',
-        result: x + y,
-        operation_type,
-      });
-      break;
-    case Enum.subtraction:
-      res.status(200).json({
-        status: 'success',
-        slackUsername: 'Abitech',
-        result: x - y,
-        operation_type,
-      });
-      break;
-    case Enum.multiplication:
-      res.status(200).json({
-        status: 'success',
-        slackUsername: 'Abitech',
-        result: x * y,
-        operation_type,
-      });
-  }
+  res.status(200).json({
+    status: 'success',
+    slackUsername: 'Abitech',
+    result,
+    operation_type: Enum.addition,
+  });
+
+  // switch (operation_type) {
+  //   case Enum.addition:
+  //     res.status(200).json({
+  //       status: 'success',
+  //       slackUsername: 'Abitech',
+  //       result: x + y,
+  //       operation_type,
+  //     });
+  //     break;
+  //   case Enum.subtraction:
+  //     res.status(200).json({
+  //       status: 'success',
+  //       slackUsername: 'Abitech',
+  //       result: x - y,
+  //       operation_type,
+  //     });
+  //     break;
+  //   case Enum.multiplication:
+  //     res.status(200).json({
+  //       status: 'success',
+  //       slackUsername: 'Abitech',
+  //       result: x * y,
+  //       operation_type,
+  //     });
+  // }
 });
 
 module.exports = app;

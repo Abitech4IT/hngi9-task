@@ -26,12 +26,12 @@ app.post('/api/v1/hng-task', (req, res) => {
 
   console.log(req.body);
 
-  let result = x + y;
+  // let result = x + y;
 
   res.status(200).json({
     status: 'success',
     slackUsername: 'Abitech',
-    result,
+    result: x + y,
     operation_type: operation_type.addition,
   });
 });
